@@ -1,10 +1,10 @@
 class Bob
   hey: (statement) ->
-	# the order of these matches matters
     if statement.match(/^\s*$/)
       'Fine. Be that way!'
-    else if statement.match(/^[A-Z ]+[!?]?$/) || statement.match(/^[^a-z]+!$/)
+    else if statement == statement.toUpperCase() && statement != statement.toLowerCase()
       'Woah, chill out!'
+    # you can shout with a question mark, so this must come after
     else if statement.slice(-1) == '?'
       'Sure.'
     else
