@@ -1,10 +1,11 @@
 var words = function(words) {
   count = {};
 
-  words.split(/[\s\p{Punct}]/).forEach(function(word) {
-    if (!word) return;
+  words.split(/\s/).forEach(function(word) {
     word = word.toLowerCase();
+    word = word.replace(/[^\w\déпривет]/g, '');
 
+    if (!word) return;
     count[word] && ++count[word] || (count[word] = 1);
   });
 
